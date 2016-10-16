@@ -1,1 +1,3 @@
-import something from './something.js';
+import Horserace from './horserace.js';
+
+module.exports = Horserace;

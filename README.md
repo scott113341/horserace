@@ -9,6 +9,9 @@
 Benchmark different versions of code.
 
 
+Global registration
+
+
 [npm-version-badge]: https://img.shields.io/npm/v/horserace.svg?style=flat-square
 [npm-version-href]: https://www.npmjs.com/package/horserace
 

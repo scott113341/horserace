@@ -22,7 +22,9 @@
     "test:ci": "node lib/test/index.js && semistandard"
   },
   "dependencies": {
-    "bluebird": "^3.4.6"
+    "benchmark": "^2.1.1",
+    "bluebird": "^3.4.6",
+    "npm-install-version": "^5.1.0"
   },
   "devDependencies": {
     "babel-cli": "^6.16.0",
