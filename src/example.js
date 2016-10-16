@@ -4,7 +4,7 @@ const race = new Horserace({
   versions: [
     'csjs@1.0.0',
     'csjs@1.0.6'
-  ],
+  ]
 });
 
 race
