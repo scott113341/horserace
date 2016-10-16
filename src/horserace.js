@@ -38,7 +38,7 @@ export default class Horserace {
     });
 
     this.versions.forEach(version => {
-      const fastest = this._heats.filter(heat => heat.filter('fastest').map('name').includes(version));
+      const fastest = this._heats.filter(heat => heat.filter('fastest').map('name').indexOf(version) > -1);
       const fastestCount = fastest.length;
       console.log(`${version} was fastest for ${fastestCount} heat${fastestCount === 1 ? '' : 's'}`);
       fastest.forEach(heat => console.log(` - ${heat.name}`));
