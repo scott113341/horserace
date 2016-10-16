@@ -18,12 +18,8 @@ export default class Horserace {
         console.log(`Fastest ${fastest.length === 1 ? 'is' : 'are'} ${fastest.join(', ')}`);
       });
 
-    this.versions.forEach(version => {
-      const lib = niv.require(version);
-      heat.add(version, () => fn(lib));
-    });
-
     heat.name = name;
+    heat.fn = fn;
     this._heats.push(heat);
     return this;
   }
@@ -32,11 +28,15 @@ export default class Horserace {
     Horserace.install(this.versions);
 
     this._heats.forEach(heat => {
-      console.log(`\nRunning heat ${heat.name}`);
+      this.versions.forEach(version => {
+        const lib = niv.require(version);
+        heat.add(version, () => heat.fn(lib));
+      });
+      console.log(`Running heat ${heat.name}`);
       heat.run();
+      console.log('');
     });
 
-    console.log('');
     this.versions.forEach(version => {
       const fastest = this._heats.filter(heat => heat.filter('fastest').map('name').includes(version));
       const fastestCount = fastest.length;
