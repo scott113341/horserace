@@ -16,7 +16,7 @@
     "horserace": "lib/index.js"
   },
   "scripts": {
-    "build": "shx rm -rf lib/ && shx mkdir lib/ && babel --copy-files --out-dir lib/ src/",
+    "build": "shx rm -rf lib/ && shx mkdir lib/ && babel --copy-files --source-maps --out-dir lib/ src/",
     "lint": "semistandard --fix",
     "test": "npm run build && node lib/test/index.js",
     "test:ci": "node lib/test/index.js && semistandard"
